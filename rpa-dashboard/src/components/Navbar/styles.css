@@ -1,0 +1,78 @@
+nav, 
+.container {
+    padding: 20px;
+    width: 100%;
+    height: 120px;
+    /* background-color: rgba(0, 0, 0, 0.132); */
+} 
+
+.calendar-title {
+    font-family: Inter;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    flex: 1 1;
+    padding: 0 1.5rem;
+    height: 60px;
+    justify-content: space-between;
+}
+
+.navbar-menu-item {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    width: 27px;
+    height: 23.79px;
+    margin: 3px;
+}
+
+.notification-icon {
+    width: 27px;
+    height: 29px;
+    margin: 3px;
+}
+
+.data-filters {
+    display: flex;
+    padding: 0 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar-btn {
+    cursor: pointer;
+    width: 153px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-icon {
+    margin: 4px;
+    color: white;
+    width: 16px;
+    height: 16px;
+    border: 5px;
+    border-color: white;
+}
+
+.blue-linear {
+    background: linear-gradient(265.87deg, rgba(23, 65, 213, 0.08) -100.05%, rgba(23, 65, 213, 0.49) -100.03%, rgba(0, 0, 0, 0.45) 109.4%);
+    border: 1px solid #202020;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}

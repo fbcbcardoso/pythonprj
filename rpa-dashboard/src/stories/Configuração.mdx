@@ -1,0 +1,286 @@
+import { Meta } from "@storybook/blocks";
+
+import Code from "./assets/code-brackets.svg";
+import Colors from "./assets/colors.svg";
+import Comments from "./assets/comments.svg";
+import Direction from "./assets/direction.svg";
+import Flow from "./assets/flow.svg";
+
+import ApexCharts from "./assets/apexcharts.svg";
+import Tailwind from "./assets/tailwind.svg";
+import PostCSS from "./assets/postcss.svg";
+import AutoPrefixer from "./assets/autoprefixer.svg";
+import ESLint from "./assets/eslint.svg";
+import Prettier from "./assets/prettier.svg";
+import FileSaver from "./assets/file-saver.svg";
+import ReactCSV from "./assets/react-csv.svg";
+import ReactIcons from "./assets/react-icons.svg";
+import ReactTable from "./assets/react-table.svg";
+import ReactTailwindTable from "./assets/react-tailwind-table.svg";
+import Storybook from "./assets/storybook.svg";
+import ReactLogo from "./assets/react.svg";
+
+<Meta title="Instalar e Configurar" />
+
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 700;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
+
+    .link-item {
+      display: block;
+      padding: 20px;
+      border: 1px solid #00000010;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #333333;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
+
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
+
+    .link-item span,
+    .link-item p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  `}
+</style>
+
+  # Configuração de Ambiente
+    Bem-vindo(a) à documentação Front-End para o Dashboard de Monitoramento RPA!
+    Neste guia, você encontrará informações detalhadas sobre a criação e utilização de um projeto moderno e dinâmico,
+    desenvolvido em React. Este Dashboard É uma ferramenta projetada com o intuito de fornecer uma experiência de
+    monitoramento eficiente para o usuário.
+
+    Este documento tem como objetivo fornecer uma visão geral abrangente do projeto, abordando os principais conceitos,
+    funcionalidades e tecnologias envolvidas. Forneceremos instruções detalhadas, acompanhadas de exemplos práticos,
+    para ser possível visualizar por trás da utilização do Dash!
+
+  <div className="subheading"> Visão Geral </div>
+    O Dashboard de Monitoramento RPA é uma solução poderosa que permite aos usuários acompanhar, 
+    visualizar e analisar o desempenho de suas automações de processos RPA. Com uma interface
+    moderna e intuitiva, fornece insights valiosos sobre o status das automações,
+    facilitando a identificação rápida de problemas e a tomada de decisões
+    informadas.
+
+  <div className="subheading"> Tecnologias Utilizadas </div>
+    <div className="link-list">
+      <a
+        className="link-item"
+        href="https://react.dev"
+        target="_blank"
+      >
+          <img src={ReactLogo} alt="react" />
+        <span>
+          <strong> React </strong>
+            Biblioteca Java Script com capacidade de criar interfaces de usuário 
+            componentizadas, renderização eficiente e gerenciamento avançado de estado.
+        </span>
+      </a>
+      
+      <a
+        className="link-item"
+        href="https://storybook.js.org"
+        target="_blank"
+      >
+          <img src={Storybook} alt="storybook" />
+        <span>
+          <strong> Storybook </strong>
+            Ferramenta que facilita o desenvolvimento e a documentação dos componentes do seu projeto.
+            Permite criar, visualizar e testar isoladamente os componentes do seu aplicativo. 
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        href="https://apexcharts.com"
+        target="_blank"
+      >
+        <img src={ApexCharts} alt="apexcharts" />
+        <span>
+          <strong> Apex Charts </strong>
+            Biblioteca de gráficos interativos que oferece uma variedade de opções de visualização de dados. 
+            É de fácil uso, tem recursos personalizáveis e suporte a várias plataformas.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        href="https://tailwindcss.com"
+        target="_blank"
+      >
+        <img src={Tailwind} alt="Tailwind" />
+        <span>
+          <strong> Tailwind </strong>
+           Framework CSS utilitário altamente personalizável, fornece uma série de classes pré-definidas
+           para estilizar rapidamente seus componentes.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        href="https://postcss.org"
+        target="_blank"
+      >
+        <img src={PostCSS} alt="PostCSS" />
+        <span>
+          <strong> Post CSS </strong>
+          Adiciona automaticamente prefixos de fornecedores aos estilos CSS, garantindo uma maior compatibilidade
+          com os diferentes navegadores.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        href="https://github.com/postcss/autoprefixer"
+        target="_blank"
+      >
+      <img src={AutoPrefixer} alt="autoprefixer" />
+        <span>
+          <strong> Auto Prefixer </strong>
+          Adiciona automaticamente prefixos de fornecedores aos estilos CSS, 
+          garantindo uma maior compatibilidade com os diferentes navegadores.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        href="https://eslint.org"
+        target="_blank"
+      >
+          <img src={ESLint} alt="eslint" />
+        <span>
+          <strong> ES Lint </strong>
+          Ferramenta de análise estática que ajuda a identificar e relatar problemas no seu código Java Script.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        href="https://prettier.io"
+        target="_blank"
+      >
+          <img src={Prettier} alt="prettier" />
+        <span>
+          <strong> Prettier </strong>
+          Ferramenta de formatação de código que ajuda a manter um estilo de código consistente
+          dentro do projeto, podendo formatar automaticamente o código ao salvar.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        target="_blank"
+      >
+          <img src={FileSaver} alt="file-saver" />
+        <span>
+          <strong> File-saver@2.0.5 </strong>
+            Utilidade que permite salvar arquivos a partir do navegador, 
+            sendo possível gerar e disponibilizar downloads de arquivos.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        target="_blank"
+      >
+          <img src={ReactCSV} alt="react-svg" />
+        <span>
+          <strong> React-csv@2.2.2 </strong>
+            Fornece componentes para gerar arquivos CSV a partir dos dados em seu aplicativo React.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        href="https://react-icons.github.io/react-icons/"
+        target="_blank"
+      >
+          <img src={ReactIcons} alt="react-icons" />
+        <span>
+          <strong> React-icons@4.8.0 </strong>
+            Fornece componentes para gerar arquivos CSV a partir dos dados em seu aplicativo React.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        target="_blank"
+      >
+          <img src={ReactTable} alt="react-table" />
+        <span>
+          <strong> React-table@7.8.0 </strong>
+            Biblioteca flexível e extensível para exibição de dados tabulares, fornece 
+            recursos como classificação, paginação e filtragem.
+        </span>
+      </a>
+
+      <a
+        className="link-item"
+        target="_blank"
+      >
+          <img src={ReactTailwindTable} alt="react-tailwind-table" />
+        <span>
+          <strong> React-tailwind-table@1.1.1 </strong>
+            Extensão do react-table que utiliza classes do TailwindCSS para estilizar as tabelas de dados. 
+        </span>
+      </a>
+
+    </div>
