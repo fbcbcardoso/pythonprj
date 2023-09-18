@@ -1,0 +1,48 @@
+use [DEVTEC-20220409]
+
+--// drop procedure Proc_API_Get_TokenCnab  
+go
+create procedure Proc_API_Get_TokenCnab
+
+	@c_Busca Varchar(120)
+
+--	@TokenCNAB Varchar(80)
+--	,@ChaveCNAB Varchar(35)
+--	,@ArqCNAB   Varchar(80)
+--	,@TitCNAB   Varchar(9)
+--	,@MatCNAB   Varchar(6)
+
+as
+select 
+		ZBP_FILIAL,
+		ZBP_CHAVE,
+		ZBP_TITULO,
+		ZBP_MAT,
+		ZBP_TKNRET,
+		ZBP_BCOFUN,
+		ZBP_USER,
+		ZBP_OBS,
+		ZBP_HORPRC,
+		ZBP_DATPRC,
+		ZBP_VALOR,
+		ZBP_ARQUIV
+	
+	from ZBP010 
+where 
+	(		ZBP_TKNRET	=	@c_Busca	
+		or	ZBP_CHAVE	=	@c_Busca	
+		or	ZBP_TITULO	=	@c_Busca	
+		or	ZBP_ARQUIV  =	@c_Busca	
+		or	ZBP_MAT		=	@c_Busca
+	)
+
+	and D_E_L_E_T_ = ''
+	
+go
+--// execute Proc_API_Get_TokenCnab '60E20144B854239F75B79D796A4C2AD33C31EC7E' 
+--// execute Proc_API_Get_TokenCnab '032453663' 
+--// execute Proc_API_Get_TokenCnab '26390000000002983031' 
+--// execute Proc_API_Get_TokenCnab '100047' 
+
+
+	

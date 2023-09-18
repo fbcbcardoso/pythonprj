@@ -1,0 +1,16 @@
+Column_name	Type	Computed	Length	Prec	Scale	Nullable	TrimTrailingBlanks	FixedLenNullInSource	Collation
+ZBP_FILIAL	varchar	no	2	     	     	no	no	no	Latin1_General_BIN
+ZBP_CHAVE	varchar	no	35	     	     	no	no	no	Latin1_General_BIN
+ZBP_TITULO	varchar	no	9	     	     	no	no	no	Latin1_General_BIN
+ZBP_MAT	varchar	no	6	     	     	    no	no	no	Latin1_General_BIN
+ZBP_TKNRET	varchar	no	80	     	     	no	no	no	Latin1_General_BIN
+ZBP_BCOFUN	varchar	no	3	     	     	no	no	no	Latin1_General_BIN
+ZBP_USER	varchar	no	20	     	     	no	no	no	Latin1_General_BIN
+ZBP_OBS	varchar	no	120	     	     	    no	no	no	Latin1_General_BIN
+ZBP_HORPRC	varchar	no	9	     	     	no	no	no	Latin1_General_BIN
+ZBP_DATPRC	varchar	no	8	     	     	no	no	no	Latin1_General_BIN
+ZBP_VALOR	float	no	8	53   	NULL	no	(n/a)	(n/a)	NULL
+ZBP_ARQUIV	varchar	no	80	     	     	no	no	no	Latin1_General_BIN
+D_E_L_E_T_	varchar	no	1	     	     	no	no	no	Latin1_General_BIN
+R_E_C_N_O_	bigint	no	8	19   	0    	no	(n/a)	(n/a)	NULL
+R_E_C_D_E_L_bigint	no	8	19   	0  	    no	(n/a)	(n/a)	NULL
