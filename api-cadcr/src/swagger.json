@@ -1,0 +1,1023 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API de integração CAD CR",
+    "description": "Documentação da api de centro de custo.",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+
+  "components":{
+    "securitySchemes":{
+      "bearerAuth":{
+        "type":"http",
+        "scheme":"bearer",
+        "bearerFormat":"JWT",
+        "in":"header"
+      }
+    }
+  },
+  
+  "paths": {
+    "/cr/{id}": {
+      "get": {
+        "tags": ["Centro de custo"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{
+          "in": "path",
+          "name":"id",
+          "type": "string",
+          "required":true
+        }],
+        "description":"Como parametro de busca podem ser utilizados os seguintes dados: CTT_CUSTO OU CTT_RES",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401":{
+            "description":"Não autorizado"
+          }
+        }
+      }
+      
+    },
+    "/auth": {
+      "post":{
+        "tags":["Centro de custo"],
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "type":"object",
+                "properties":{
+                  "USUARIO":{
+                    "type":"string",
+                    "required":true
+                  },
+                  "SENHA":{
+                    "type":"string",
+                    "required":true
+                  }
+                }
+              }
+            }
+          }
+        },
+          "responses": {
+            "200": {
+              "description": "Autenticado com sucesso"
+            },
+            "400":{
+              "description":"testefail"
+            },
+            "401":{
+              "description":"testefailAUTH"
+            }
+          }
+      }
+    },
+    "/register": {
+      "post":{
+        "tags":["Centro de custo"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "type":"object",
+                "properties":{
+                  "USUARIO":{
+                    "type":"string",
+                    "required":true
+                  },
+                  "SENHA":{
+                    "type":"string",
+                    "required":true
+                  }
+                }
+              }
+            }
+          }
+        },
+          "responses": {
+            "200": {
+              "description": "Autenticado com sucesso"
+            },
+            "400":{
+              "description":"testefail"
+            },
+            "401":{
+              "description":"testefailAUTH"
+            }
+          }
+        }
+    },
+    "/addCr": {
+      "post": {
+        "tags": ["Centro de custo"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CTT_CUSTO": {
+                    "type": "string"
+                  },
+                  "CTT_DESC01": {
+                    "type": "string"
+                  },
+                  "CTT_XITEM": {
+                    "type": "string"
+                  },
+                  "CTT_CLASSE": {
+                    "type": "string"
+                  },
+                  "CTT_BLOQ": {
+                    "type": "string"
+                  },
+                  "CTT_DTEXIS": {
+                    "type": "string"
+                  },
+                  "CTT_CCLP": {
+                    "type": "string"
+                  },
+                  "CTT_CCSUP": {
+                    "type": "string"
+                  },
+                  "CTT_RES": {
+                    "type": "string"
+                  },
+                  "CTT_NOME": {
+                    "type": "string"
+                  },
+                  "CTT_ENDER": {
+                    "type": "string"
+                  },
+                  "CTT_BAIRRO": {
+                    "type": "string"
+                  },
+                  "CTT_CEP": {
+                    "type": "string"
+                  },
+                  "CTT_ESTADO": {
+                    "type": "string"
+                  },
+                  "CTT_MUNIC": {
+                    "type": "string"
+                  },
+                  "CTT_XCLIEN": {
+                    "type": "string"
+                  },
+                  "CTT_XLJFAT": {
+                    "type": "string"
+                  },
+                  "CTT_CEI": {
+                    "type": "string"
+                  },
+                  "CTT_TIPO": {
+                    "type": "string"
+                  },
+                  "CTT_ITOBRG": {
+                    "type": "string"
+                  },
+                  "CTT_CLOBRG": {
+                    "type": "string"
+                  },
+                  "CTT_ACITEM": {
+                    "type": "string"
+                  },
+                  "CTT_ACCLVL": {
+                    "type": "string"
+                  },
+                  "CTT_XOPERA": {
+                    "type": "string"
+                  },
+                  "CTT_XNGRUP": {
+                    "type": "string"
+                  },
+                  "CTT_XGEREN": {
+                    "type": "string"
+                  },
+                  "CTT_XNGERE": {
+                    "type": "string"
+                  },
+                  "CTT_XSUPER": {
+                    "type": "string"
+                  },
+                  "CTT_XNSUPE": {
+                    "type": "string"
+                  },
+                  "CTT_XDIRET": {
+                    "type": "string"
+                  },
+                  "CTT_XNDIRE": {
+                    "type": "string"
+                  },
+                  "CTT_XEMAIL": {
+                    "type": "string"
+                  },
+                  "CTT_XDEXEC": {
+                    "type": "string"
+                  },
+                  "CTT_XNDEXE": {
+                    "type": "string"
+                  },
+                  "CTT_XESUL": {
+                    "type": "string"
+                  },
+                  "CTT_XEGER": {
+                    "type": "string"
+                  },
+                  "CTT_XENDER": {
+                    "type": "string"
+                  },
+                  "CTT_XBAIRR": {
+                    "type": "string"
+                  },
+                  "CTT_XMUNIC": {
+                    "type": "string"
+                  },
+                  "CTT_XCEP": {
+                    "type": "string"
+                  },
+                  "CTT_XUF": {
+                    "type": "string"
+                  },
+                  "CTT_XFONE": {
+                    "type": "string"
+                  },
+                  "CTT_XCLIPR": {
+                    "type": "string"
+                  },
+                  "CTT_XREGIO": {
+                    "type": "string"
+                  },
+                  "CTT_XTPCTA": {
+                    "type": "string"
+                  },
+                  "CTT_XFLFAT": {
+                    "type": "string"
+                  },
+                  "CTT_XALISS": {
+                    "type": "number"
+                  },
+                  "CTT_XSEMVE": {
+                    "type": "string"
+                  },
+                  "CTT_XSEGUI": {
+                    "type": "string"
+                  },
+                  "CTT_XSINDI": {
+                    "type": "string"
+                  },
+                  "CTT_XESTCL": {
+                    "type": "string"
+                  },
+                  "CTT_XCDSR": {
+                    "type": "string"
+                  },
+                  "CTT_XATEST": {
+                    "type": "string"
+                  },
+                  "CTT_XGRUPO": {
+                    "type": "string"
+                  },
+                  "CTT_XBLCOM": {
+                    "type": "string"
+                  },
+                  "CTT_XBLORC": {
+                    "type": "string"
+                  },
+                  "CTT_XBLDP": {
+                    "type": "string"
+                  },
+                  "CTT_XBLFAT": {
+                    "type": "string"
+                  },
+                  "CTT_XBLFIN": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE1": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE2": {
+                    "type": "string"
+                  },
+                  "CTT_XDL_ME": {
+                    "type": "number"
+                  },
+                  "CTT_XDLFAT": {
+                    "type": "number"
+                  },
+                  "CTT_XBINSS": {
+                    "type": "number"
+                  },
+                  "CTT_XCONDP": {
+                    "type": "string"
+                  },
+                  "CTT_XINDR1": {
+                    "type": "string"
+                  },
+                  "CTT_XBC1": {
+                    "type": "number"
+                  },
+                  "CTT_XMREJ1": {
+                    "type": "number"
+                  },
+                  "CTT_XBC2": {
+                    "type": "number"
+                  },
+                  "CTT_XMREJ2": {
+                    "type": "number"
+                  },
+                  "CTT_XBC3": {
+                    "type": "number"
+                  },
+                  "CTT_XMREJ3": {
+                    "type": "number"
+                  },
+                  "CTT_XRISS": {
+                    "type": "string"
+                  },
+                  "CTT_XBLOQ": {
+                    "type": "string"
+                  },
+                  "CTT_XAREA": {
+                    "type": "string"
+                  },
+                  "CTT_XGRBES": {
+                    "type": "string"
+                  },
+                  "CTT_XDTINI": {
+                    "type": "string"
+                  },
+                  "CTT_XTTRIB": {
+                    "type": "string"
+                  },
+                  "CTT_XGERRE": {
+                    "type": "string"
+                  },
+                  "CTT_XEGERR": {
+                    "type": "string"
+                  },
+                  "CTT_XNGERR": {
+                    "type": "string"
+                  },
+                  "CTT_XTPCLI": {
+                    "type": "string"
+                  },
+                  "CTT_XEMPOR": {
+                    "type": "string"
+                  },
+                  "CTT_TPLOT": {
+                    "type": "string"
+                  },
+                  "CTT_CEI2": {
+                    "type": "string"
+                  },
+                  "CTT_XTES": {
+                    "type": "string"
+                  },
+                  "CTT_XBLQRH": {
+                    "type": "string"
+                  },
+                  "CTT_XMNSRV": {
+                    "type": "string"
+                  },
+                  "CTT_XDMNSV": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE3": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE4": {
+                    "type": "string"
+                  },
+                  "CTT_XSP_ID": {
+                    "type": "string"
+                  },
+                  "CTT_XSPDES": {
+                    "type": "string"
+                  },
+                  "CTT_XOBSNF": {
+                    "type": "number"
+                  },
+                  "CTT_XMEDFM": {
+                    "type": "number"
+                  },
+                  "CTT_XFATFM": {
+                    "type": "number"
+                  },
+                  "CTT_XCODPR": {
+                    "type": "number"
+                  },
+                  "CTT_XNATFI": {
+                    "type": "string"
+                  },
+                  "CTT_XINDR2": {
+                    "type": "string"
+                  },
+                  "CTT_XINDR3": {
+                    "type": "string"
+                  },
+                  "CTT_XDVENC": {
+                    "type": "string"
+                  },
+                  "CTT_XESTSR": {
+                    "type": "string"
+                  },
+                  "CTT_XRFISC": {
+                    "type": "string"
+                  },
+                  "CTT_XDTFIM": {
+                    "type": "string"
+                  },
+                  "CTT_TIPO2": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Centro de custo criado"
+          }
+        },
+        "401":{
+          "description":"Não autorizado"
+        }
+      }
+    },
+    "/addTransitoria": {
+      "post": {
+        "tags": ["Centro de custo"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MOVIMENTACAO_ID": {
+                    "type": "number"
+                  },
+                  "MOVIMENTACAO_STATUS": {
+                    "type": "number"
+                  },
+                  "MOVIMENTACAO_TIPO": {
+                    "type": "number"
+                  },
+                  "CTT_RES": {
+                    "type": "number"
+                  },
+                  "CTT_CUSTO": {
+                    "type": "string"
+                  },
+                  "CTT_XBLOQ": {
+                    "type": "string"
+                  },
+                  "CTT_XGEREN": {
+                    "type": "string"
+                  },
+                  "CTT_XNGERE": {
+                    "type": "string"
+                  },
+                  "CTT_XSUPER": {
+                    "type": "string"
+                  },
+                  "CTT_XNSUPE": {
+                    "type": "string"
+                  },
+                  "CTT_XGERRE": {
+                    "type": "string"
+                  },
+                  "CTT_XNGERR": {
+                    "type": "string"
+                  },
+                  "CTT_XGERCO": {
+                    "type": "string"
+                  },
+                  "CTT_XNGRCO": {
+                    "type": "string"
+                  },
+                  "CTT_XRALT1": {
+                    "type": "string"
+                  },
+                  "CTT_XNALT1": {
+                    "type": "string"
+                  },
+                  "CTT_XRALT2": {
+                    "type": "string"
+                  },
+                  "CTT_XNALT2": {
+                    "type": "string"
+                  },
+                  "CTT_XRALT3": {
+                    "type": "string"
+                  },
+                  "CTT_XNALT3": {
+                    "type": "string"
+                  },
+                  "CTT_XRALT4": {
+                    "type": "string"
+                  },
+                  "CTT_XNALT4": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE1": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE2": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE3": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE4": {
+                    "type": "string"
+                  },
+                  "CTT_XAPREG": {
+                    "type": "string"
+                  },
+                  "CTT_XNAREG": {
+                    "type": "string"
+                  },
+                  "SC_ACAO": {
+                    "type": "number"
+                  },
+                  "ZZO_COD": {
+                    "type": "string"
+                  },
+                  "ZZO_NOME": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Centro de custo criado"
+          },
+          "401":{
+            "description":"Não autorizado"
+          }
+        }
+      }
+    },
+    "/addTransitoriaCriacao": {
+      "post": {
+        "tags": ["Centro de custo"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  
+                  "ID_SOLICITACAO": {
+                    "type": "number"
+                  },
+                  "CUSTO_REFERENCIA": {
+                    "type": "string"
+                  },
+                  "DESCRICAO_CR": {
+                    "type": "string"
+                  },
+                  "STATUS_SOLICITACAO": {
+                    "type": "number"
+                  },
+                  "CUSTO_CRIADO": {
+                    "type": "string"
+                  },
+                  "DESCRICAO_ERRO": {
+                    "type": "string"
+                  },
+                  "DATA_CRIACAO": {
+                    "type": "string"
+                  },
+                  "D_E_L_E_T_": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Centro de custo criado"
+          },
+          "401":{
+            "description":"Não autorizado"
+          }
+        }
+      }
+    },
+    "/addTransitoriaV2": {
+      "post": {
+        "tags": ["Centro de custo"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MOVIMENTACAO_ID": {
+                    "type": "number"
+                  },
+                  "MOVIMENTACAO_STATUS": {
+                    "type": "number"
+                  },
+                  "MOVIMENTACAO_TIPO": {
+                    "type": "number"
+                  },
+                  "SC_ACAO": {
+                    "type": "number"
+                  },
+                  "CTT_CUSTO": {
+                    "type": "string"
+                  },
+                  "CTT_RES": {
+                    "type": "string"
+                  },
+                  "CAMPO": {
+                    "type": "string"
+                  },
+                  "VALOR": {
+                    "type": "string"
+                  },
+                  "DEPENDENCIA": {
+                    "type": "number"
+                  },
+                  "DESCRICAO_ERRO": {
+                    "type": "string"
+                  },
+                  "D_E_L_E_T_": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Centro de custo criado"
+          },
+          "401":{
+            "description":"Não autorizado"
+          }
+        }
+      }
+    },
+    "/updateCr/{id}": {
+      "patch": {
+        "tags": ["Centro de custo"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [{
+          "in":"path",
+          "name":"id",
+          "type":"string",
+          "required":true
+        }],
+        "description": "Os campos descritos abaixo são os campos que podem ser alterados com essa rota, não é necessário o envio de todos, apenas dos com necessidade de atualização.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CTT_DESC01": {
+                    "type": "string"
+                  },
+                  "CTT_XITEM": {
+                    "type": "string"
+                  },
+                  "CTT_CLASSE": {
+                    "type": "string"
+                  },
+                  "CTT_BLOQ": {
+                    "type": "string"
+                  },
+                  "CTT_DTEXIS": {
+                    "type": "string"
+                  },
+                  "CTT_CCLP": {
+                    "type": "string"
+                  },
+                  "CTT_CCSUP": {
+                    "type": "string"
+                  },
+                  "CTT_RES": {
+                    "type": "string"
+                  },
+                  "CTT_NOME": {
+                    "type": "string"
+                  },
+                  "CTT_ENDER": {
+                    "type": "string"
+                  },
+                  "CTT_BAIRRO": {
+                    "type": "string"
+                  },
+                  "CTT_CEP": {
+                    "type": "string"
+                  },
+                  "CTT_ESTADO": {
+                    "type": "string"
+                  },
+                  "CTT_MUNIC": {
+                    "type": "string"
+                  },
+                  "CTT_XCLIEN": {
+                    "type": "string"
+                  },
+                  "CTT_XLJFAT": {
+                    "type": "string"
+                  },
+                  "CTT_CEI": {
+                    "type": "string"
+                  },
+                  "CTT_TIPO": {
+                    "type": "string"
+                  },
+                  "CTT_ITOBRG": {
+                    "type": "string"
+                  },
+                  "CTT_CLOBRG": {
+                    "type": "string"
+                  },
+                  "CTT_ACITEM": {
+                    "type": "string"
+                  },
+                  "CTT_ACCLVL": {
+                    "type": "string"
+                  },
+                  "CTT_XOPERA": {
+                    "type": "string"
+                  },
+                  "CTT_XNGRUP": {
+                    "type": "string"
+                  },
+                  "CTT_XGEREN": {
+                    "type": "string"
+                  },
+                  "CTT_XSUPER": {
+                    "type": "string"
+                  },
+                  "CTT_XNSUPE": {
+                    "type": "string"
+                  },
+                  "CTT_XDIRET": {
+                    "type": "string"
+                  },
+                  "CTT_XNDIRE": {
+                    "type": "string"
+                  },
+                  "CTT_XEMAIL": {
+                    "type": "string"
+                  },
+                  "CTT_XDEXEC": {
+                    "type": "string"
+                  },
+                  "CTT_XNDEXE": {
+                    "type": "string"
+                  },
+                  "CTT_XESUL": {
+                    "type": "string"
+                  },
+                  "CTT_XEGER": {
+                    "type": "string"
+                  },
+                  "CTT_XENDER": {
+                    "type": "string"
+                  },
+                  "CTT_XBAIRR": {
+                    "type": "string"
+                  },
+                  "CTT_XMUNIC": {
+                    "type": "string"
+                  },
+                  "CTT_XCEP": {
+                    "type": "string"
+                  },
+                  "CTT_XUF": {
+                    "type": "string"
+                  },
+                  "CTT_XFONE": {
+                    "type": "string"
+                  },
+                  "CTT_XCLIPR": {
+                    "type": "string"
+                  },
+                  "CTT_XREGIO": {
+                    "type": "string"
+                  },
+                  "CTT_XTPCTA": {
+                    "type": "string"
+                  },
+                  "CTT_XFLFAT": {
+                    "type": "string"
+                  },
+                  "CTT_XALISS": {
+                    "type": "number"
+                  },
+                  "CTT_XSEMVE": {
+                    "type": "string"
+                  },
+                  "CTT_XSEGUI": {
+                    "type": "string"
+                  },
+                  "CTT_XSINDI": {
+                    "type": "string"
+                  },
+                  "CTT_XESTCL": {
+                    "type": "string"
+                  },
+                  "CTT_XCDSR": {
+                    "type": "string"
+                  },
+                  "CTT_XATEST": {
+                    "type": "string"
+                  },
+                  "CTT_XGRUPO": {
+                    "type": "string"
+                  },
+                  "CTT_XBLCOM": {
+                    "type": "string"
+                  },
+                  "CTT_XBLORC": {
+                    "type": "string"
+                  },
+                  "CTT_XBLDP": {
+                    "type": "string"
+                  },
+                  "CTT_XBLFAT": {
+                    "type": "string"
+                  },
+                  "CTT_XBLFIN": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE1": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE2": {
+                    "type": "string"
+                  },
+                  "CTT_XDL_ME": {
+                    "type": "number"
+                  },
+                  "CTT_XDLFAT": {
+                    "type": "number"
+                  },
+                  "CTT_XBINSS": {
+                    "type": "number"
+                  },
+                  "CTT_XCONDP": {
+                    "type": "string"
+                  },
+                  "CTT_XINDR1": {
+                    "type": "string"
+                  },
+                  "CTT_XBC1": {
+                    "type": "number"
+                  },
+                  "CTT_XMREJ1": {
+                    "type": "number"
+                  },
+                  "CTT_XBC2": {
+                    "type": "number"
+                  },
+                  "CTT_XMREJ2": {
+                    "type": "number"
+                  },
+                  "CTT_XBC3": {
+                    "type": "number"
+                  },
+                  "CTT_XMREJ3": {
+                    "type": "number"
+                  },
+                  "CTT_XRISS": {
+                    "type": "string"
+                  },
+                  "CTT_XBLOQ": {
+                    "type": "string"
+                  },
+                  "CTT_XAREA": {
+                    "type": "string"
+                  },
+                  "CTT_XGRBES": {
+                    "type": "string"
+                  },
+                  "CTT_XDTINI": {
+                    "type": "string"
+                  },
+                  "CTT_XTTRIB": {
+                    "type": "string"
+                  },
+                  "CTT_XGERRE": {
+                    "type": "string"
+                  },
+                  "CTT_XEGERR": {
+                    "type": "string"
+                  },
+                  "CTT_XNGERR": {
+                    "type": "string"
+                  },
+                  "CTT_XTPCLI": {
+                    "type": "string"
+                  },
+                  "CTT_XEMPOR": {
+                    "type": "string"
+                  },
+                  "CTT_TPLOT": {
+                    "type": "string"
+                  },
+                  "CTT_CEI2": {
+                    "type": "string"
+                  },
+                  "CTT_XTES": {
+                    "type": "string"
+                  },
+                  "CTT_XBLQRH": {
+                    "type": "string"
+                  },
+                  "CTT_XMNSRV": {
+                    "type": "string"
+                  },
+                  "CTT_XDMNSV": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE3": {
+                    "type": "string"
+                  },
+                  "CTT_XUSRE4": {
+                    "type": "string"
+                  },
+                  "CTT_XSP_ID": {
+                    "type": "string"
+                  },
+                  "CTT_XSPDES": {
+                    "type": "string"
+                  },
+                  "CTT_XOBSNF": {
+                    "type": "number"
+                  },
+                  "CTT_XMEDFM": {
+                    "type": "number"
+                  },
+                  "CTT_XFATFM": {
+                    "type": "number"
+                  },
+                  "CTT_XCODPR": {
+                    "type": "number"
+                  },
+                  "CTT_XNATFI": {
+                    "type": "string"
+                  },
+                  "CTT_XINDR2": {
+                    "type": "string"
+                  },
+                  "CTT_XINDR3": {
+                    "type": "string"
+                  },
+                  "CTT_XDVENC": {
+                    "type": "string"
+                  },
+                  "CTT_XESTSR": {
+                    "type": "string"
+                  },
+                  "CTT_XRFISC": {
+                    "type": "string"
+                  },
+                  "CTT_XDTFIM": {
+                    "type": "string"
+                  },
+                  "CTT_TIPO2": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Centro de custo alterado"
+          },
+          "401":{
+            "description":"Não autorizado"
+          }
+        }
+      }
+    }
+  }
+}
