@@ -1,0 +1,111 @@
+
+/* Imagem de Fundo */
+.background {
+    opacity: 75%;
+    position: fixed;
+    align-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  
+  /* Centralizar todo o conteúdo */
+  .center-content{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  /* Retângulo Azul */
+  .blue-card {
+    background: #142635;
+    border-radius: 15px;
+    width: 465px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  /* Logo GPS */
+  .icon-image {
+    margin-top: -64px !important;
+    background-color: white;
+    border: solid 4px #142635;
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    width: 181px;
+    height: 44px;
+}
+  
+  
+  /* Input Usuário */
+  .user {
+    margin-top: 10px;
+  }
+  
+  .full-width-user {
+    margin-top: -10px;
+  }
+  
+  /* Input Senha */
+  .password {
+    margin-top: 10px;
+    margin-right: 38%;
+  }
+  
+  .full-width-password {
+    margin-top: -10px;
+    width: 420px;
+  }
+  
+  
+  /* Botão */
+  .mat-stroked-button {
+    margin-top: 10px;
+    width: 250px;
+    color: #17A2B8;
+    height: 40px;
+    background-color: #ffffff;
+    border: solid 1px #17A2B8;
+    transition: 0.2s;
+
+  }
+
+  .mat-stroked-button:hover {
+
+    color: #ffffff;
+    background-color: #17A2B8;
+
+
+  }
+
+
+
+  .ajustText{
+    color: white;
+    font-family: sans-serif;
+  }
+
+  .ajust {
+    width: 420px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+}
+
+
+  

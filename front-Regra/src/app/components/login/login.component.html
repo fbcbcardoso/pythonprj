@@ -1,0 +1,35 @@
+
+<body>
+    <main>
+      <img src="https://www.lucianolima.com.br/home_intranet-1.jpg"
+           class="background">
+  
+      <div class="center-content">
+        <mat-card class="blue-card">
+          <div mat-card-avatar class="icon-image"><img class="logo" src="../../../assets/logo_azul.png" alt=""></div>
+          <form [formGroup]="form" (ngSubmit)="login()" >
+                <div class="user">
+                  <h4 class="ajustText"> Digite seu Usuário: </h4>
+                    <mat-form-field class="full-width-user ajust" appearance="fill">
+                    <mat-label> Usuário </mat-label>
+                      <input matInput formControlName="user" placeholder="Digite seu Nome de Usuário...">
+                        </mat-form-field></div>
+  
+                <div class="password">
+                  <h4 class="ajustText"> Digite sua Senha: </h4>
+                    <mat-form-field class="full-width-password" appearance="fill">
+                    <mat-label> Senha </mat-label>
+                      <input matInput formControlName="password" [type]="hide ? 'password' : 'text' ">
+                        <button mat-icon-button matSuffix (click)="hide = !hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button></mat-form-field></div>
+  
+                <div class="button-row">
+                <button mat-stroked-button type="submit"> Entrar </button>
+              </div>
+              </form>
+          </mat-card>
+        </div>
+      </main>
+    </body>
+  

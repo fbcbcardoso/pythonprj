@@ -1,0 +1,267 @@
+.box{
+
+  display: flex;
+  justify-content: center !important;
+  flex-direction: row;
+}
+
+
+
+.tableAjust{
+  margin: 30px;
+}
+
+.btn-acrescent{
+
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 9px 13px;
+gap: 7px;
+
+background: #28A745;
+border-radius: 13px;
+
+border: none;
+
+color: #fff;
+
+cursor: pointer;
+
+margin-bottom: 10px;
+margin-right: 28px;
+}
+
+.btn-red{
+
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 9px 13px;
+height: 42px;
+
+background: #ffffff;
+
+border-radius: 13px;
+
+border: 1px solid #e77070;
+
+
+
+
+color: #e77070;
+
+cursor: pointer;
+
+margin-bottom: 10px;
+margin-right: 28px;
+padding: 9px 13px;
+
+}
+
+.btn-red:hover{
+
+  background: #e77070;
+  color: #ffffff;
+
+
+  transition: 0.5s;
+}
+
+.btn-yellow{
+
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 9px 13px;
+height: 42px;
+
+background: #ffffff;
+
+border-radius: 13px;
+
+border: 1px solid #ffd000;
+
+
+
+
+color: #ffd000;
+
+cursor: pointer;
+
+margin-bottom: 10px;
+margin-right: 28px;
+padding: 9px 13px;
+
+}
+
+.btn-yellow:hover{
+
+  background: #ffd000;
+  color: #ffffff;
+
+
+  transition: 0.5s;
+}
+
+.btn-blue{
+
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 9px 13px;
+height: 42px;
+
+background: #ffffff;
+
+border-radius: 13px;
+
+border: 1px solid #0099ff;
+
+
+
+
+color: #0099ff;
+
+cursor: pointer;
+
+margin-bottom: 10px;
+margin-right: 28px;
+padding: 9px 13px;
+
+}
+
+.btn-blue:hover{
+
+  background: #0099ff;
+  color: #ffffff;
+
+
+  transition: 0.5s;
+}
+
+.btn-purple{
+
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 9px 13px;
+height: 42px;
+
+background: #ffffff;
+
+border-radius: 13px;
+
+border: 1px solid #8c00ff;
+
+
+
+
+color: #8c00ff;
+
+cursor: pointer;
+
+margin-bottom: 10px;
+margin-right: 28px;
+padding: 9px 13px;
+
+}
+
+.btn-purple:hover{
+
+  background: #8c00ff;
+  color: #ffffff;
+
+
+  transition: 0.5s;
+}
+
+.btn-grey{
+
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 9px 13px;
+height: 42px;
+
+background: #ffffff;
+
+border-radius: 13px;
+
+border: 1px solid #635d68;
+
+
+
+
+color: #635d68;
+
+cursor: pointer;
+
+margin-bottom: 10px;
+margin-right: 28px;
+padding: 9px 13px;
+
+}
+
+.btn-grey:hover{
+
+  background: #635d68;
+  color: #ffffff;
+
+
+  transition: 0.5s;
+}
+
+.ajustButton{
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.test{
+
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+
+  background-color: #fff;
+
+  color: black;
+
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.icon-excel{
+
+  width: 25px;
+  color: #28A745;
+  cursor: pointer;
+
+  margin-right: 25px;
+  margin-bottom: 9px;
+  filter: invert(48%) sepia(7%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.show {
+  display:none
+}
+
+
+
+

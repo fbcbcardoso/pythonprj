@@ -1,0 +1,70 @@
+<app-header></app-header>
+
+<app-commit
+  [novoUsuario]="novoUsuario"
+  [commitId]="commitId"
+  (alertFechou)="fecharDetalhesCompra($event)"
+></app-commit>
+
+<div class="content-box">
+  <div class="box">
+    <div class="ajustText">
+      <span class="title">Solicitações de Regra de Cálculo</span>
+      <span class="subTitle">Abaixo contem todas as Solicitações</span>
+
+      <div class="ajustButton">
+        <div class="row">
+          <button class="btn-red" (click)="personFilter('P')">Pendentes</button>
+          <button class="btn-yellow" (click)="personFilter('3')">
+            3 meses
+          </button>
+          <button class="btn-blue" (click)="personFilter('6')">6 meses</button>
+          <button class="btn-purple" (click)="personFilter('12')">
+            12 meses
+          </button>
+          <button class="btn-grey" (click)="clearFilter()">
+            Limpar Filtros
+          </button>
+          <select class="btn-grey" [(ngModel)]="perm" (change)="selectPerm()">
+            <option value="" disabled>Permissao</option>
+            <option value="REG">REG</option>
+            <option value="CO">CO</option>
+            <option value="GOD">GOD</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <img
+            (click)="export()"
+            class="icon-excel"
+            id="pencil"
+            src="../../../assets/excel.svg"
+          />
+          <button class="btn-acrescent" (click)="newSolicit()">
+            Solicitação
+            <div class="test"><span>+</span></div>
+          </button>
+        </div>
+      </div>
+
+      <div class="example-wrapper">
+        <ag-grid-angular
+          style="width: 100%; height: 100%"
+          class="ag-theme-alpine"
+          [columnDefs]="columnDefs"
+          [defaultColDef]="defaultColDef"
+          [rowSelection]="rowSelection"
+          [rowData]="rowData"
+          (gridReady)="onGridReady($event)"
+          [pagination]="true"
+          [rowMultiSelectWithClick]="true"
+          [paginationPageSize]="30"
+          (selectionChanged)="onSelectionChanged($event)"
+        >
+        </ag-grid-angular>
+      </div>
+
+      <div class="tableAjust"></div>
+    </div>
+  </div>
+</div>

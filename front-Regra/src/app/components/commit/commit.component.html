@@ -1,0 +1,62 @@
+<div
+  class="body-alert"
+  (click)="clickClose($event)"
+  *ngIf="novoUsuario === true"
+>
+  <div class="tamanhoBox">
+    <div class="ajustText">
+      <span class="title">Colaboração</span>
+      <span class="subTitle"
+        >Deixe uma breve descrição referente a solicitação</span
+      >
+    </div>
+
+    <div class="menssageBox">
+      <div class="commitBox" *ngFor="let m of commitObj">
+        <span class="userName">{{ m.CLB_USUARIO }}</span>
+        <span class="commit">{{ m.CLB_OBS }}</span>
+        <a class="file" (click)="downloadFile(m.CLB_ID_ANEXO)">{{
+          m.CLB_ANEXO
+        }}</a>
+
+        <div class="timeBox">
+          <span class="time">{{
+            m.CLB_DATA_HR | date: "dd/MM/yyyy HH:mm:ss"
+          }}</span>
+        </div>
+      </div>
+    </div>
+
+    <textarea rows="5" cols="70" id="detalhes" [(ngModel)]="message"></textarea>
+
+    <div class="ajustRigth">
+      <form [formGroup]="form" enctype="multipart/form-data">
+        <div class="file-drop-area">
+          <button class="botao-outline">{{ nomeArquivo }}</button>
+          <img
+            src="../../../assets/upload-arquivo.png"
+            alt="imagem de upload de arquivo"
+            width="40px"
+            class="float-left margL"
+          />
+          <span class="file-msg margL"
+            >Arraste ou selecione seu arquivo <br />Formato
+            <strong>.xls | .xlsx | .pdf | .zip | .rar</strong></span
+          >
+          <input
+            class="file-input"
+            id="file"
+            #inputFile
+            type="file"
+            (change)="capturarArquivo($event)"
+            formControlName="file"
+          />
+        </div>
+      </form>
+      <button class="btn-cancel" (click)="cancelarCapturaArquivo()">
+        CANCELAR ARQUIVO
+      </button>
+      <button class="btn-send" (click)="sendCommit()">Enviar</button>
+    </div>
+  </div>
+</div>

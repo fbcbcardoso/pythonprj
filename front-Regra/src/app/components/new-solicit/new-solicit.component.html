@@ -1,0 +1,257 @@
+<app-header></app-header>
+
+<div class="content-box">
+  <div class="box">
+    <form [formGroup]="form" enctype="multipart/form-data">
+      <div class="ajustText">
+        <span class="title">Cadastro de Solicitações</span>
+        <span class="subTitle"
+          >Preencha o formulário abaixo para inclusão de uma nova
+          solicitação.</span
+        >
+      </div>
+
+      <div class="row marginT">
+        <div class="inputAjust">
+          <label>TIPO SOLICITAÇÃO:</label>
+          <select class="inputSelect" formControlName="typeSolicit">
+            <option value="" disabled>Selecione</option>
+            <option value="1">1 - ALTERAÇÃO</option>
+            <option value="2">2 - INCLUSÃO</option>
+          </select>
+        </div>
+
+        <div class="inputAjust">
+          <label>TIPO ROTEIRO:</label>
+          <select class="inputSelect" formControlName="typeRoadMap">
+            <option value="" disabled>Selecione</option>
+            <option value="1">1 - ROTEIRO DE CALCULO</option>
+            <option value="2">2 - GRATIFICAÇÃO</option>
+          </select>
+        </div>
+
+        <div class="inputAjust">
+          <label>VERBA*:</label>
+
+          <ng-select
+            class="inputSelectSearch"
+            [items]="budgetValue"
+            (change)="setBudgetValue()"
+            bindLabel="Descricao"
+            formControlName="budget"
+          >
+          </ng-select>
+        </div>
+
+        <div class="inputAjust">
+          <label>GRUPO DE REGRA:</label>
+          <input
+            class="input"
+            formControlName="ruleGroup"
+            value="{{ form.value.ruleGroup }}"
+            readonly
+          />
+        </div>
+
+        <div class="inputAjust">
+          <label>TIPO BASE*:</label>
+          <select class="inputSelect" formControlName="baseType">
+            <option
+              *ngFor="let prod of basetypeValue"
+              [ngValue]="prod.value"
+              disabled
+            >
+              {{ prod.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="inputAjust" *ngIf="form.value.baseType === 'F'">
+          <label>VALOR FIXO:</label>
+          <input class="input" formControlName="fixedValue" readonly />
+        </div>
+
+        <div class="inputAjust">
+          <label>VALOR MAXIMO:</label>
+          <input class="input" formControlName="maxValue" readonly />
+        </div>
+      </div>
+      <label class="ajustLabel">ROTINA DE CALCULO AFETADOS:</label>
+
+      <div class="row">
+        <div class="checkbox">
+          <input
+            type="checkbox"
+            [checked]="payRoll != 0"
+            value="1"
+            (click)="clickPayRoll($event)"
+          />
+          <label>Folha</label>
+        </div>
+
+        <div class="checkbox">
+          <input
+            type="checkbox"
+            [checked]="vacation != 0"
+            value="1"
+            (click)="clickVacation($event)"
+          />
+          <label>Ferias</label>
+        </div>
+
+        <div class="checkbox">
+          <input
+            type="checkbox"
+            [checked]="termination != 0"
+            value="1"
+            (click)="clickTermination($event)"
+          />
+          <label>Rescisão</label>
+        </div>
+
+        <div class="checkbox">
+          <input
+            type="checkbox"
+            [checked]="thirteen_1 != 0"
+            value="1"
+            (click)="clickThirteen_1($event)"
+          />
+          <label>13º 1º Parcela</label>
+        </div>
+
+        <div class="checkbox">
+          <input
+            type="checkbox"
+            [checked]="thirteen_2 != 0"
+            value="1"
+            (click)="clickThirteen_2($event)"
+          />
+          <label>13º 2º Parcela</label>
+        </div>
+      </div>
+
+      <label class="ajustLabel">DESCRIÇÃO:</label>
+
+      <div class="row">
+        <textarea
+          rows="5"
+          cols="70"
+          id="detalhes"
+          formControlName="description"
+          >{{ form.value.description }}</textarea
+        >
+      </div>
+
+      <div class="file-drop-area">
+        <button class="botao-outline">{{ nomeArquivo }}</button>
+        <img
+          src="../../../assets/upload-arquivo.png"
+          alt="imagem de upload de arquivo"
+          width="40px"
+          class="float-left margL"
+        />
+        <span class="file-msg margL"
+          >Arraste ou selecione seu arquivo <br />Formato
+          <strong>xls | .xlsx | .pdf | .zip | .rar</strong></span
+        >
+        <input
+          class="file-input"
+          id="file"
+          #inputFile
+          type="file"
+          (change)="capturarArquivo($event)"
+          formControlName="file"
+        />
+      </div>
+      <div class="ajustButton">
+        <button class="btn-cancel" (click)="cancelarCapturaArquivo()">
+          CANCELAR ARQUIVO
+        </button>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="inputAjust">
+        <label>FILTROS:</label>
+        <select class="inputSelect" [(ngModel)]="valor1" (change)="filter2()">
+          <option value="0" disabled>Selecione</option>
+          <option *ngFor="let filter of filters" [ngValue]="filter">
+            {{ filter.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="inputAjust">
+        <label></label>
+        <ng-select
+        *ngIf="valor1 != 0"
+          class="inputSelectSearch ajustTop"
+          [items]="filters2"
+          (change)="setBudgetValue()"
+          bindLabel="Descricao"
+          [(ngModel)]="valor2"
+        >
+        </ng-select>
+      </div>
+
+      <button (click)="addNewFilter()" class="btn-add-filter">
+        + Aplicar Filtro
+      </button>
+    </div>
+
+    <div class="row" ngif="box.length > 0">
+      <div class="filter" *ngFor="let prod of box">
+        <label>{{ prod.Descricao }}</label>
+        <label>{{ prod.Codigo }}</label>
+        <div class="filter-btn" (click)="cancelFilter(prod.Codigo)">
+          <span>x</span>
+        </div>
+      </div>
+    </div>
+
+    <button
+      *ngIf="this.box.length > 0"
+      class="btn-consult"
+      (click)="consultColab()"
+    >
+      Consultar Funcionarios
+    </button>
+
+    <div class="example-wrapper" *ngIf="this.rowData">
+      <ag-grid-angular
+        style="width: 100%; height: 100%"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowSelection]="rowSelection"
+        [rowData]="rowData"
+        (gridReady)="onGridReady($event)"
+        [pagination]="true"
+        [rowMultiSelectWithClick]="true"
+        [paginationPageSize]="30"
+      >
+      </ag-grid-angular>
+    </div>
+
+    <div class="rowRigth">
+      <button class="btn-cancel" (click)="cancel()">Cancelar</button>
+      <button
+        *ngIf="!this.idNumber"
+        class="btn-save"
+        type="submit"
+        (click)="postDados()"
+      >
+        Salvar
+      </button>
+
+      <button
+        *ngIf="this.idNumber"
+        class="btn-save"
+        type="submit"
+        (click)="pathDados()"
+      >
+        Editar
+      </button>
+    </div>
+  </div>
+</div>
